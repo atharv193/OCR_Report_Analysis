@@ -472,31 +472,31 @@ def main():
             )
         
         # Statistical tests
-        st.subheader("🔍 Statistical Analysis")
+        # st.subheader("🔍 Statistical Analysis")
         
-        # Normality test
-        shapiro_stat, shapiro_p = stats.shapiro(data['confidence_score'].sample(min(5000, len(data))))
-        ks_stat, ks_p = stats.kstest(data['confidence_score'], lambda x: norm.cdf(x, mu, sigma))
+        # # Normality test
+        # shapiro_stat, shapiro_p = stats.shapiro(data['confidence_score'].sample(min(5000, len(data))))
+        # ks_stat, ks_p = stats.kstest(data['confidence_score'], lambda x: norm.cdf(x, mu, sigma))
         
-        col1, col2 = st.columns(2)
-        with col1:
-            st.metric(
-                "Shapiro-Wilk Test p-value", 
-                f"{shapiro_p:.4f}",
-                help="Tests if data follows normal distribution (p > 0.05 suggests normal)"
-            )
-        with col2:
-            st.metric(
-                "Kolmogorov-Smirnov Test p-value", 
-                f"{ks_p:.4f}",
-                help="Tests goodness of fit to normal distribution"
-            )
+        # col1, col2 = st.columns(2)
+        # with col1:
+        #     st.metric(
+        #         "Shapiro-Wilk Test p-value", 
+        #         f"{shapiro_p:.4f}",
+        #         help="Tests if data follows normal distribution (p > 0.05 suggests normal)"
+        #     )
+        # with col2:
+        #     st.metric(
+        #         "Kolmogorov-Smirnov Test p-value", 
+        #         f"{ks_p:.4f}",
+        #         help="Tests goodness of fit to normal distribution"
+        #     )
         
-        # Interpretation
-        if shapiro_p > 0.05:
-            st.success("✅ Data appears to follow a normal distribution (Shapiro-Wilk p > 0.05)")
-        else:
-            st.warning("⚠️ Data may not perfectly follow normal distribution, but analysis is still useful")
+        # # Interpretation
+        # if shapiro_p > 0.05:
+        #     st.success("✅ Data appears to follow a normal distribution (Shapiro-Wilk p > 0.05)")
+        # else:
+        #     st.warning("⚠️ Data may not perfectly follow normal distribution, but analysis is still useful")
         
         # Show sample of all data with percentiles
         st.subheader("📊 Sample Data with Percentiles")
